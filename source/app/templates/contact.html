@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block title %}$ FLASK_APP: /Contact{% endblock %}
+
+{% block content %}
+<div class="container">    
+    <h1>Contact</h1>
+
+    <br/><br/>
+
+    <form class="row g-3" action="{{ url_for('contact') }}" method="POST">
+        <div class="col-md-6">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" value="{{ firstname }}">
+        </div>
+        <div class="col-md-6">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" value="{{ lastname }}">
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" value="{{ email }}">
+        </div>
+
+        {% if error_statement %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error:</strong> {{ error_statement }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        {% if success_statement %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success:</strong> {{ success_statement }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
