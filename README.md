@@ -1,5 +1,6 @@
-# Flask App with Admin
+# FXML
 
+FXML is intended to create a set of tools for making Forex trading decisions based off of simple calculations of risk and machine/deep learning recommendations.
 A Flask app made with HTML5, Bootstrap, Python, and Flask with templating by Jinja.
 App is containerized with Docker for portability.
 Production environment uses nginx as a reverse proxy to enable SSL
