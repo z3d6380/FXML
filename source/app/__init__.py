@@ -3,8 +3,6 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from playhouse.shortcuts import model_to_dict
 from .database import *
-from .regex import *
-from .smtp import *
 
 # APP INITIALIZATION
 load_dotenv()
@@ -34,29 +32,3 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
-
-@app.route('/contact', methods=["GET", "POST"])
-def contact():
-    if request.method == "GET": 
-        return render_template("contact.html")
-    elif request.method == "POST":
-        firstname = request.form.get("firstname")
-        lastname = request.form.get("lastname")
-        email = request.form.get("email")
-
-        if not firstname or not lastname or not email:
-            error_statement = "All form fields required..."
-            return render_template("contact.html", error_statement=error_statement, firstname=firstname, lastname=lastname, email=email)
-        elif not re.fullmatch(regex.email_re, email):
-            error_statement = "Email format invalid..."
-            return render_template("contact.html", error_statement=error_statement, firstname=firstname, lastname=lastname, email=email)
-        else:
-            success_statement = "Thank you! We will be in contact with you shortly..."
-            # Send Contact Received Email
-            smtp.ContactMessage(firstname, email)
-            # Create database entry of contact
-            Contact.create(firstname=firstname, lastname=lastname, email=email)
-            return render_template("contact.html", success_statement=success_statement, firstname=firstname, lastname=lastname, email=email)
-    else:
-        error_statement = "Bad request..."
-        return render_template("contact.html", error_statement=error_statement, firstname=firstname, lastname=lastname, email=email)
