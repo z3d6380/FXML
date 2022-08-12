@@ -48,4 +48,3 @@ def get_accounts():
         return json.loads(response.content.decode('utf-8'))
     else:
         return None
-
