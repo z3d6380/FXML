@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+{% block title %}$FXML: /Account{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <a href="{{ url_for('accounts') }}"><button type="button" class="btn-close" aria-label="Close"></button></a>  
+        <h1>Account</h1>
+    </div>
+    <div class="container">
+        <p>{{ _account['id'] }}&nbsp;<i>({{ _account['alias'] }})</i></p><br />
+
+        <h3>Summary</h3>
+        <p><strong>Balance:</strong>&emsp;{{ _account['balance'] }}</p>
+        <p><strong>Total P/L:</strong>&emsp;{{ _account['pl'] }}</p>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Pending Orders</div>
+                    <div class="card-body">
+                      <h1 class="card-title">{{ _account['pendingOrderCount'] }}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Open Positions</div>
+                    <div class="card-body">
+                      <h1 class="card-title">{{ _account['openPositionCount'] }}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Open Trades</div>
+                    <div class="card-body">
+                      <h1 class="card-title">{{ _account['openTradeCount'] }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div><br />
+
+        <div class="row">
+            <div class="container-fluid" style="padding-top: 50px;">
+                <div class="card">
+                    <div class="card-header text-center " style="font-family: Sans-Serif; text-transform:uppercase; font-size:1.5rem">
+                        Position Stats
+                    </div>
+                    <div class="card-body">
+
+                        {% for position in _account['positions'] %}
+                            <div class="container-fluid" style="padding-top: 50px;">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card  h-100">
+                                            <div class="card-header text-center " style="font-family: Sans-Serif; text-transform:uppercase; font-size:1.5rem">
+                                                {{ position['instrument'] }}
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title text-center"><strong>Instrument P/L:</strong>&emsp;{{ position['pl'] }}</h5>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="card text-bg-success h-100">
+                                                            <div class="card-header text-center " style="font-family: Sans-Serif; text-transform:uppercase; font-size:1.5rem">
+                                                                LONG
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title text-center">{{ position['long']['pl'] }}</h5>
+                                                                <button class="btn btn-info align-items-end">Details</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="card text-bg-danger h-100">
+                                                            <div class="card-header text-center " style="font-family: Sans-Serif; text-transform:uppercase; font-size:1.5rem">
+                                                                SHORT
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title text-center">{{ position['short']['pl'] }}</h5>
+                                                                <button class="btn btn-info align-items-end">Details</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

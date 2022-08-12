@@ -16,7 +16,7 @@ MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
 MYSQL_HOST = os.getenv("MYSQL_HOST")
 MYSQL_PORT = os.getenv("MYSQL_PORT")
 
-if os.getenv("TESTING") == "true":
+if os.getenv("FLASK_ENV") == "development":
     print("Running in test mode => Using Sqlite in memory")
     db = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
 else:

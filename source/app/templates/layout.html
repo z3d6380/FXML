@@ -3,7 +3,12 @@
 {% block layout %}
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url_for('index') }}">$ FLASK_APP:</a>
+      <a class="navbar-brand" href="{{ url_for('index') }}">$FXML</a>
+      {% if mode %}
+        <span class="badge text-bg-success">LIVE</span>
+      {% else %}
+        <span class="badge text-bg-warning">DEV</span>
+      {% endif %}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -11,6 +16,12 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('positionSizing') }}">Position Sizing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('accounts') }}">Accounts</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('about') }}">About</a>

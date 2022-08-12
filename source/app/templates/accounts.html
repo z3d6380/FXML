@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}$FXML: /Accounts{% endblock %}
+
+{% block content %}
+    <div class="container">    
+        <h1>Accounts</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for i in range(_accounts['size']) %}
+                <p><strong>Account ID:&emsp;</strong><a href="{{ url_for('account_by_id', id=_accounts['id'][i]) }}">{{ _accounts['id'][i] }}</a>
+                &nbsp;<i>({{ _accounts['alias'][i] }})</i>
+                &emsp;<strong>Balance:&emsp;</strong>{{ _accounts['bal'][i] }}</p>
+            {% endfor%}
+        </div>
+    </div>
+{% endblock %}
