@@ -2,8 +2,31 @@
 {% block title %}$FXML: /Home{% endblock %}
 
 {% block content %}
-    <div class="container">    
-        <h1>FXML</h1>
-        <p>FXML is intended to create a set of tools for making Forex trading decisions based off of simple calculations of risk and machine/deep learning recommendations. A Flask app made with HTML5, Bootstrap, Python, and Flask with templating by Jinja. App is containerized with Docker for portability. Production environment uses nginx as a reverse proxy to enable SSL.</p>
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Hello, world!</h1>
+          <p class="col-md-8 fs-4">FXML is intended to create a set of tools for making Forex trading decisions based off of simple calculations of risk and machine/deep learning recommendations. A Flask app made with HTML5, Bootstrap, Python, and Flask with templating by Jinja. App is containerized with Docker for portability. Production environment uses nginx as a reverse proxy to enable SSL.</p>
+          <a href="{{ url_for('relativestrength') }}"><button class="btn btn-primary btn-lg" type="button">Start &raquo;</button></a>
+        </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Relative Strength</h2>
+                <p>First step in the process is to see the Relative Strength of currencies against each other. This tool will help you see where potential trades may exist.</p>
+            </div>
+            <div class="col-md-4">
+                <h2>News</h2>
+                <p>Second step is to look for any possible upcoming news about the currency pairs you're interested in trading.</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Position Sizing</h2>
+                <p>Last step in the process is to size the position of your trade with the risk, cost, and target automatically calculated. Starting a trade becomes as easy as pressing a button.</p>
+            </div>
+        </div>
+
+        <hr>
+
+    </div> <!-- /container -->
 {% endblock %}

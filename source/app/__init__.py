@@ -77,6 +77,14 @@ def account_by_id(id):
     else:
         return "Invalid request", 400
 
+@app.route('/relativestrength')
+def relativestrength():
+    return render_template("relativestrength.html", mode=mode)
+
+@app.route('/news')
+def news():
+    return render_template("news.html", mode=mode)
+
 @app.route('/positionsizing')
 def positionSizing():
     return render_template("positionsizing.html", mode=mode)
