@@ -2,7 +2,7 @@
 
 # File: fx_accounts.py
 # Written By: Luis Moraguez
-# Description: Contains all settings and methods to work with accounts through forex api
+# Description: Contains all settings and methods to work with accounts through OANDA forex api (Can be configured to work with other APIs)
 
 # IMPORTS
 import datetime

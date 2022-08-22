@@ -2,7 +2,7 @@
 
 # File: db.py
 # Written By: Luis Moraguez
-# Description: Contains all database settings and methods for use with Flask App
+# Description: Contains all database settings and methods for use with FXML App (Models)
 
 # IMPORTS
 import datetime

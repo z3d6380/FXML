@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+
+# File: __init__.py
+# Written By: Luis Moraguez
+# Description: The Controller of the FXML app, handles routes to pages and API as well as connections to DB (Models)
+
 # IMPORTS
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
