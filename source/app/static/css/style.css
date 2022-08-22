@@ -31,3 +31,35 @@ body {
       font-size: 3.5rem;
     }
 }
+
+/* Table Settings */
+th, td {
+    font-size: 12px;
+    text-align: center;
+}
+
+th.title {
+    background: lightgray;
+    font-size: 18px;
+}
+
+td.total {
+    background: yellow;
+    font-weight: bold;
+}
+
+th.AUD, td.AUD {
+    background: lightcyan;
+}
+
+th.CHF, td.CHF {
+    background: lightcyan;
+}
+
+th.GBP, td.GBP {
+    background: lightcyan;
+}
+
+th.NZD, td.NZD {
+    background: lightcyan;
+}
