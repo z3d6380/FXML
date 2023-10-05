@@ -14,7 +14,7 @@ peewee==3.15.0
 pycparser==2.21
 PyMySQL==1.0.2
 python-dotenv==0.20.0
-requests==2.28.1
+requests==2.31.0
 urllib3==1.26.17
 Werkzeug==2.2.3
 zipp==3.8.0
