@@ -5,10 +5,9 @@
 # Description: Contains all settings and methods to work with accounts through OANDA forex api (Can be configured to work with other APIs)
 
 # IMPORTS
-import datetime
 import json
 import os
-import requests
+from security import safe_requests
 
 # FOREX API SETTINGS
 if os.getenv("FLASK_ENV") == "production":
@@ -33,7 +32,7 @@ get_params = {
 # METHODS
 def get_account(id):
     url = '{0}accounts/{1}'.format(FX_BASE_URL, id)
-    response = requests.get(url, headers=headers)
+    response = safe_requests.get(url, headers=headers)
 
     if response.status_code == 200:
         return json.loads(response.content.decode('utf-8'))
@@ -42,7 +41,7 @@ def get_account(id):
 
 def get_accounts():
     url = '{0}accounts'.format(FX_BASE_URL)
-    response = requests.get(url, headers=headers)
+    response = safe_requests.get(url, headers=headers)
 
     if response.status_code == 200:
         return json.loads(response.content.decode('utf-8'))
